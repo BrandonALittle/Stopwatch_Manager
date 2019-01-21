@@ -1,0 +1,83 @@
+body {
+    background-color: #794545;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 5%;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+}
+
+button {
+    background-color: #880a0a;
+    margin: 5px;
+    padding: 10px;
+    border: 2px solid #00000000;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+button:focus, button:active {
+    outline: none;
+}
+
+button:hover {
+    transition: .4s;
+    border: 2px solid red;
+}
+
+#main {
+    background-color: #918989;
+    min-width: 90%;
+    min-height: 80vh;
+    margin: auto;
+    padding: 25px;
+    border-radius: 7px;
+    height: 100%;
+}
+
+#stopwatch-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+#addStopwatch {
+    display: block;
+    margin: auto;
+    background-color: #5f2604;
+    border: 1px solid black;
+    border-radius: 2px;
+    min-width: 25%;
+    color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#addStopwatch:hover {
+    transition: .4s;
+    border: 2px solid #09697a;
+}
+
+.stopwatch {
+    background-color: #8d4808;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 4px;
+    margin: 25px;
+    padding: 10px;
+}
+
+.timer {
+    color: #fff;
+    font-size: 2em;
+    text-align: center;
+}
+
+.controls {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
