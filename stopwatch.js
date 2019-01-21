@@ -5,12 +5,16 @@ class Stopwatch {
         this.isRunning = false; 
         this.elapsedTime = 0; 
         this.previousTime = Date.now();
+        // Render stopwatch; create Display and Controls
         this.drawStopwatch();
         this.display = new Display(this);
         this.controls = new Controls(this);
         this.intervalID = setInterval(() => {this.tick()}, 100);
     }
 
+    /**
+     * Runs clock if stopwatch is in running state. Updates time and displays new time.
+     */
     tick() {
         if (this.isRunning) {
             const now = Date.now();
@@ -21,6 +25,9 @@ class Stopwatch {
         this.display.updateDisplay();
     }
 
+    /**
+     * Starts and stops (pauses) clock;
+     */
     startStop() {
         if (!this.isRunning) {
             this.previousTime = Date.now();
@@ -28,10 +35,16 @@ class Stopwatch {
         this.isRunning = !this.isRunning;
     }
 
+    /**
+     * Resets clock to zero;
+     */
     reset() {
         this.elapsedTime = 0;
     }
 
+    /**
+     * Removes stopwatch from page and clears interval.
+     */
     terminate() {
         clearInterval(this.intervalID);
         const stopwatchContainer = document.getElementById('stopwatch-container');
@@ -39,6 +52,9 @@ class Stopwatch {
         stopwatchContainer.removeChild(stopwatch);
     }
 
+    /**
+     * Renders stopwatch to DOM.
+     */
     drawStopwatch() {
         const stopwatch = document.createElement('div');
         stopwatch.setAttribute('id', this.id);

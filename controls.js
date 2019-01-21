@@ -1,9 +1,13 @@
 class Controls {
     constructor(owner) {
         this.owner = owner;
+        // Render controls to DOM.
         this.drawControls();
     }
 
+    /**
+     * Renders controls to DOM; adds event listeners and calls Stopwatch methods accordingly.
+     */
     drawControls() {
         const controls = document.createElement('div');
         const startStopButton = document.createElement('button');
@@ -27,7 +31,7 @@ class Controls {
 
         deleteButton.addEventListener('click', () => {
             this.owner.terminate();
-        })
+        });
 
         controls.appendChild(startStopButton);
         controls.appendChild(resetButton);

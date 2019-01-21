@@ -6,9 +6,13 @@ class Display {
         this.hours = '00';
         this.minutes = '00';
         this.seconds = '00';
+        // Render clock
         this.drawDisplay();
     }
 
+    /**
+     * Renders clock to DOM.
+     */
     drawDisplay() {
         const time = `${this.hours}:${this.minutes}:${this.seconds}`;
         const stopwatch = document.getElementById(this.owner.id);
@@ -19,6 +23,10 @@ class Display {
         stopwatch.appendChild(timer);
     }
 
+    /**
+     * Gets parsed time in hours/minutes/seconds, updates time in current instance.
+     * @param {Number} elapsedTimeInMS
+     */
     updateTime(elapsedTimeInMS) {
         const { hours, minutes, seconds } = this.parseMS(elapsedTimeInMS);
         this.hours = hours;
@@ -26,11 +34,18 @@ class Display {
         this.seconds = seconds;
     }
 
+    /**
+     * Renders new time on clock.
+     */
     updateDisplay() {
-        const htmlDisplay = document.getElementById(this.id);
+        const htmlDisplay = this.htmlDisplay;
         htmlDisplay.innerHTML = `${this.hours}:${this.minutes}:${this.seconds}`;
     }
 
+    /**
+     * Returns time object (hours/minutes/seconds).
+     * @param {Number} milliseconds 
+     */
     parseMS(milliseconds) {
         const hours = milliseconds / (1000 * 60 * 60);
         const intHours = Math.floor(hours);
@@ -51,6 +66,9 @@ class Display {
         }
     }
 
+    /**
+     * Returns DOM element belonging to current instance.
+     */
     get htmlDisplay() {
         return document.getElementById(this.id);
     }
